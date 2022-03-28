@@ -17,37 +17,26 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
+
 if($method == 'GET' && !isset($url['query'])) 
 {
-  $sql = "select * from contacts";
+  $sql = "select * from articles";
 }
 if($method == 'GET' && isset($url['query']))
 {
   $id = $_GET['id'];
-  $sql = "select * from contacts".($id?" where id=$id":''); 
-}
-if($method == 'PUT' && isset($url['query']))
-{
-  $id = $_PUT['id'];
-  $name = $_PUT["name"];
-  $email = $_PUT["email"];
-  $country = $_PUT["country"];
-  $city = $_PUT["city"];
-  $job = $_PUT["job"];
-  
-  $sql = "update contacts SET name='$name', email='$email', city='$city', country='$country', job='$job' WHERE id=".$id;
-}
-if($method == 'POST')
-{
-  $name = $_POST["name"];
-  $email = $_POST["email"];
-  $country = $_POST["country"];
-  $city = $_POST["city"];
-  $job = $_POST["job"];
-  
-  $sql = "insert into contacts (name, email, city, country, job) values ('$name', '$email', '$city', '$country', '$job')";
+  $sql = "select * from articles".($id?" where id=$id":''); 
 }
 
+if($method == 'POST')
+{
+  $title = $_POST["title"];
+  $writer = $_POST["writer"];
+  $innerText = $_POST["innerText"];
+  $fullText = $_POST["fullText"];
+  
+  $sql = "insert into articles (title, date, writer, innerText) values ('$title', now(), '$writer', '$innerText')";
+}
 
 // run SQL statement
 $result = mysqli_query($conn, $sql);
@@ -65,7 +54,7 @@ if ($method == 'GET' && isset($url['query'])) {
    } 
   elseif ($method == 'GET' && !isset($url['query']))
   {      
-    echo '{ "contacts": ';
+    echo '{ "articles": ';
     echo '[';
     for ($i=0 ; $i<mysqli_num_rows($result) ; $i++) {
       echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
@@ -86,9 +75,9 @@ if ($method == 'GET' && isset($url['query'])) {
 $conn->close();
 
 function console_log( $data ){
-  echo '<script>';
-  echo 'console.log('. json_encode( $data ) .')';
-  echo '</script>';
-}
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+  }
 
 ?>

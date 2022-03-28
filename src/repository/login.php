@@ -25,20 +25,41 @@ if (!$conn) {
 }
 
 $username = $_POST['username'];
-if(!isset($username)){ http_response_code(402); }
+if(empty($username)){ 
+  http_response_code(400);
+  die("No username set."); 
+}
 
 $pass = $_POST['pass'];
-if(!isset($pass)){ http_response_code(402); }
+if(empty($pass)){ 
+  http_response_code(400);
+  die("No password set."); 
+}
 
 if($method == 'POST')
 {
-  $sql = "select id, username, password from users where username =".$username; 
-
+  $encryptedPass = sha1($pass);
+  $sql = "select id, username, password from users where username=('$username') and password=('$encryptedPass')";
   $result = mysqli_query($conn, $sql);
-    // TODO test result with encryption
 
-  $hasValidCredentials = true;
+  // die if SQL statement failed
+  if (!$result) {
+    http_response_code(404);
+    die(mysqli_error($conn));
+  }
+
+  $rows = mysqli_num_rows($result);
+  
+  if($rows > 0)
+  { 
+    $hasValidCredentials = true;
+  } else { 
+    $hasValidCredentials = false;
+    http_response_code(400);
+    die("No user found."); 
+  }
 }
+    // TODO test result with encryption
 
 if ($hasValidCredentials) { 
   $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
