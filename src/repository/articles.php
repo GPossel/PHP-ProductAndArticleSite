@@ -17,6 +17,8 @@ $password = "secret123";
 $dbname = "vuedb"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+$received_data = json_decode(file_get_contents("php://input"));
+
 
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
@@ -43,34 +45,71 @@ if($method == 'DELETE' && isset($url['query']))
     }
   }
 }
+if($method == 'POST' && !isset($_POST['action'])) {
+    if(ValidateUser()) {
 
-if($method == 'POST')
-{
-  if(ValidateUser()) {
+      if(empty($_POST["title"])) {      
+        http_response_code(400); 
+        die("No empty fields allowed!"); 
+      }
+      if(empty($_POST["writer"])) { 
+        http_response_code(400);
+        die("No empty fields allowed!"); 
+      }
+      if(empty($_POST["innerText"])) { 
+        http_response_code(400);
+        die("No empty fields allowed!"); 
+      }
+      if(empty($_POST["fullText"])) { 
+        http_response_code(400);
+        die("No empty fields allowed!"); 
+      }
+  
+      $title = $_POST["title"];
+      $writer = $_POST["writer"];
+      $innerText = $_POST["innerText"];
+      $fullText = $_POST["fullText"];
+      
+      $sql = "insert into articles (title, date, writer, innerText) values ('$title', now(), '$writer', '$innerText')";
+    }
+}
+if($method == 'POST' && isset($_POST['action'])) {
+    $insert = $_GET['action'];
 
-    if(empty($_POST["title"])) {      
-      http_response_code(400); 
-      die("No empty fields allowed!"); 
-    }
-    if(empty($_POST["writer"])) { 
-      http_response_code(400);
-      die("No empty fields allowed!"); 
-    }
-    if(empty($_POST["innerText"])) { 
-      http_response_code(400);
-      die("No empty fields allowed!"); 
-    }
-    if(empty($_POST["fullText"])) { 
-      http_response_code(400);
-      die("No empty fields allowed!"); 
-    }
+  if($insert == 'insert') {
+    if(ValidateUser()) {
+      if(isset($_GET['id'])){
+        $id = $_GET['id'];
+      } else {
+        http_response_code(400); 
+        die("No id on aticle."); 
+      }
 
+      if(!isset($_POST['title'])) {      
+        http_response_code(400); 
+        die("No empty title allowed!"); 
+      }
+      if(empty($_POST["writer"])) { 
+        http_response_code(400);
+        die("No empty writer allowed!"); 
+      }
+      if(empty($_POST["innerText"])) { 
+        http_response_code(400);
+        die("No empty innerText allowed!"); 
+      }
+      if(empty($_POST["fullText"])) { 
+        http_response_code(400);
+        die("No empty fullText allowed!"); 
+      }
+
+    $id = $_GET["id"];
     $title = $_POST["title"];
     $writer = $_POST["writer"];
     $innerText = $_POST["innerText"];
     $fullText = $_POST["fullText"];
     
-    $sql = "insert into articles (title, date, writer, innerText) values ('$title', now(), '$writer', '$innerText')";
+    $sql = "update articles set title='$$title',date=now(),writer='$writer',innerText='$innerText',`fullText`='$fullText' where id=".($id);
+   }
   }
 }
 
@@ -168,5 +207,3 @@ function console_log($data){
   echo 'console.log('. json_encode( $data ) .')';
   echo '</script>';
 }
-
-?>
