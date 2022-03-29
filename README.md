@@ -3,11 +3,15 @@
 Hi! This project contains the backed PHP project. 
 It uses MySQL, composer and JWTs.
 
+#### Project settings
 This project belongs with the Front-end project on:
 https://github.com/GPossel/myfirstsite
 
 This project can be run with the following command:
 #### php -S localhost:8081
+
+The project contains an MySQL sript for the db.
+The project contains a postman export with the following endpoints to test:
 
 Following endpoint: 
 
