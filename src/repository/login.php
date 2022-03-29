@@ -8,6 +8,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 
 $hasValidCredentials = false;
+$secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
 
 $method = $_SERVER['REQUEST_METHOD'];
 // $request = explode('/', trim($_SERVER['PATH_INFO'],'/login'));
@@ -62,7 +63,6 @@ if($method == 'POST')
     // TODO test result with encryption
 
 if ($hasValidCredentials) { 
-  $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
   $issuedAt   = new DateTimeImmutable();
   $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();      // Add 60 seconds
   $serverName = "your.domain.name";
