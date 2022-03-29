@@ -24,7 +24,7 @@ Contacts
                                                                                 country:The Netherlands
                                                                                 city:Amsterdam
                                                                                 job:Software Engineer
-     - returns 
+     - creates a new contact 
 
 
 Login
@@ -44,6 +44,7 @@ Articles
                                                                                 writer:G. Possel
                                                                                 innerText:A new Article about fun facts.
                                                                                 fullText:This article contains a lot of funny facts about PHP.
+      - creates a new article, if you are logged in
                                                                                 
 
 This project was made by Gentle (639567) and is only for educational purposes. 2022
