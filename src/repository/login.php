@@ -1,17 +1,16 @@
 <?php
 declare(strict_types=1);
-
 use Firebase\JWT\JWT;
-
 require_once(__DIR__ . '/../../vendor/autoload.php');
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
+header('Access-Control-Allow-Headers: *');
 header('Content-type: application/json');
 
 $hasValidCredentials = false;
 $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
 
 $method = $_SERVER['REQUEST_METHOD'];
-// $request = explode('/', trim($_SERVER['PATH_INFO'],'/login'));
 $url = parse_url($_SERVER['REQUEST_URI']);
 
 $servername = "localhost";
@@ -57,7 +56,7 @@ if($method == 'POST')
   } else { 
     $hasValidCredentials = false;
     http_response_code(400);
-    die("No user found."); 
+    die("Wrong username or password."); 
   }
 }
     // TODO test result with encryption
