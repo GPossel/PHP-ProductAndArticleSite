@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `contacts`
+-- Table structure for table `articles`
 --
 
-DROP TABLE IF EXISTS `contacts`;
+DROP TABLE IF EXISTS `articles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `contacts` (
+CREATE TABLE `articles` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `city` varchar(100) DEFAULT NULL,
-  `country` varchar(100) DEFAULT NULL,
-  `job` varchar(100) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `writer` varchar(45) DEFAULT NULL,
+  `innerText` varchar(45) DEFAULT NULL,
+  `fullText` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contacts`
+-- Dumping data for table `articles`
 --
 
-LOCK TABLES `contacts` WRITE;
-/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (1,'Gentle','639567@student.inholland.nl','Ijmuiden','The Netherlands','Senior Programmer');
-/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+LOCK TABLES `articles` WRITE;
+/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
+INSERT INTO `articles` VALUES (1,'Citroenwater, een wondermiddel?','2022-03-27 00:00:00','G. Possel','Citroenwater heeft vele gezondheidsvoordelen.','Water met citroen kan helpen bij maagzuur, maagkrampen, \n buikpijn en een verminderde weerstand.');
+/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-20 13:15:26
+-- Dump completed on 2022-03-29  9:50:51

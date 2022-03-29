@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "9cb29a30-1ac6-4d59-93a8-0f565d27487e",
+		"name": "WebDev2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "gen",
+							"type": "text"
+						},
+						{
+							"key": "pass",
+							"value": "gen",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/src/repository/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/src/repository/contacts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"contacts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /contacts?id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/src/repository/contacts.php?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"contacts.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /contacts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "john@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "The Netherlands",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Amsterdam",
+							"type": "text"
+						},
+						{
+							"key": "job",
+							"value": "Software Engineer",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/src/repository/contacts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"contacts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /contacts?id=1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/src/repository/contacts.php?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"contacts.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Authorized] POST /articles",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDg1Mzg3ODUsImlzcyI6InlvdXIuZG9tYWluLm5hbWUiLCJuYmYiOjE2NDg1Mzg3ODUsImV4cCI6MTY0ODUzOTE0NSwidXNlck5hbWUiOiJnZW4ifQ.2u91knluCHmLyjs5uDJuBw9Hzh-80RVUopWePBhnroW9MwkS9DbpvjpJ5UVQ2ddBsqfbHZYPDrYWZfdMTZMcxg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "A new Article",
+							"type": "text"
+						},
+						{
+							"key": "writer",
+							"value": "G. Possel",
+							"type": "text"
+						},
+						{
+							"key": "innerText",
+							"value": "A new Article about fun facts.",
+							"type": "text"
+						},
+						{
+							"key": "fullText",
+							"value": "This article contains a lot of funny facts about PHP.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/src/repository/articles.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"articles.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
