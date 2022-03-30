@@ -70,7 +70,7 @@ if($method == 'POST' && !isset($_POST['action'])) {
       $innerText = $_POST["innerText"];
       $fullText = $_POST["fullText"];
       
-      $sql = "insert into articles (title, date, writer, innerText) values ('$title', now(), '$writer', '$innerText')";
+      $sql = "insert into articles (title, date, writer, innerText, `fullText`) values ('$title', now(), '$writer', '$innerText', '$fullText')";
     }
 }
 if($method == 'POST' && isset($_POST['action'])) {
