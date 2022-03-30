@@ -15,22 +15,6 @@ The project contains a **postman collection** export with the following endpoint
 
 Following endpoint: 
 
-Contacts
-  - / GET http://localhost:8081/src/repository/contacts.php
-      - returns all contacts
-  - / GET http://localhost:8081/src/repository/contacts.php uri ?id=1
-      - returns contact on id
-  - / POST http://localhost:8081/src/repository/contacts.php 
-
-                                                                      formData:          
-                                                                                name:John
-                                                                                email:john@hotmail.com
-                                                                                country:The Netherlands
-                                                                                city:Amsterdam
-                                                                                job:Software Engineer
-     - creates a new contact 
-
-
 Login
   - / POST http://localhost:8081/src/repository/login.php
                                                           formData:
@@ -49,6 +33,21 @@ Articles
                                                                                 innerText:A new Article about fun facts.
                                                                                 fullText:This article contains a lot of funny facts about PHP.
       - creates a new article, if you are logged in
+
+
+  - / POST [AUTHORIZED] http://localhost:8081/src/repository/articles.php?id=4&action=insert
+
+
+                                                                        formData:
+                                                                                title:A new Article
+                                                                                writer:G. Possel
+                                                                                innerText:A new Article about fun facts.
+                                                                                fullText:This article contains a lot of funny facts about PHP.
+
+      - updates a article, if you are logged in
+  
+  - / DELETE [AUTHORIZED] http://localhost:8081/src/repository/articles.php?id=2
+      - deletes a article, if you are logged in
                                                                                 
 
 This project was made by Gentle (639567) and is only for educational purposes. 2022
