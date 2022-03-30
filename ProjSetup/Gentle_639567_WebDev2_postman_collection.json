@@ -240,6 +240,115 @@
 				"url": null
 			},
 			"response": []
+		},
+		{
+			"name": "GET /articles?id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "[Authorized] DELETE /articles?id=1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDg1ODIwODUsImlzcyI6InlvdXIuZG9tYWluLm5hbWUiLCJuYmYiOjE2NDg1ODIwODUsImV4cCI6MTY0ODU4MjQ0NSwidXNlck5hbWUiOiJnZW4ifQ.X8vXrEMCp3fKA2YwCZG1Nq3Ag8hm2Qed8wkpMszYOYmkolQPPOQav--4r6aBGBB2apnwc3sKKINQdlfpeoiZ2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/src/repository/articles.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"articles.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Authorized] UPDATE /articles?id=1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDg2MjMzNzIsImlzcyI6InlvdXIuZG9tYWluLm5hbWUiLCJuYmYiOjE2NDg2MjMzNzIsImV4cCI6MTY0ODYyMzczMiwidXNlck5hbWUiOiJnZW4ifQ.i5xMEo0xjAQhaUx80uLriZb074WiT5pUvNUF5Fr5SEWGR8oFo6fqZQLj5rT96jE6h21P5y6-Hio1VKL77IYz1w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "A new Article",
+							"type": "text"
+						},
+						{
+							"key": "writer",
+							"value": "G. Possel",
+							"type": "text"
+						},
+						{
+							"key": "innerText",
+							"value": "A new Article about fun facts.",
+							"type": "text"
+						},
+						{
+							"key": "fullText",
+							"value": "This article contains a lot of funny facts about PHP.",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/src/repository/articles.php?id=4&action=insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"src",
+						"repository",
+						"articles.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						},
+						{
+							"key": "action",
+							"value": "insert"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
