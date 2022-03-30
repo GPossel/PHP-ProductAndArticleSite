@@ -1,7 +1,7 @@
 # myfirstsite-php
 
 Hi! This project contains the backed PHP project. 
-It uses MySQL, composer and JWTs.
+It uses MySQL, composer and JWTs. In the ProjcSetup file you can find the sql scripts and postman collection needed to test this application.
 
 #### Project settings
 This project belongs with the Front-end project on:
