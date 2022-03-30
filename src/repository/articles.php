@@ -74,7 +74,7 @@ if($method == 'POST' && !isset($_POST['action'])) {
     }
 }
 if($method == 'POST' && isset($_POST['action'])) {
-    $insert = $_GET['action'];
+    $insert = $_POST['action'];
 
   if($insert == 'insert') {
     if(ValidateUser()) {
@@ -108,7 +108,7 @@ if($method == 'POST' && isset($_POST['action'])) {
     $innerText = $_POST["innerText"];
     $fullText = $_POST["fullText"];
     
-    $sql = "update articles set title='$$title',date=now(),writer='$writer',innerText='$innerText',`fullText`='$fullText' where id=".($id);
+    $sql = "update articles set title='$title',date=now(),writer='$writer',innerText='$innerText',`fullText`='$fullText' where id=".($id);
    }
   }
 }
