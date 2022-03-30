@@ -10,6 +10,11 @@ https://github.com/GPossel/myfirstsite
 This project can be run with the following command:
 #### php -S localhost:8081
 
+
+LOGIN WITH:
+  username: **gen**
+  password: **gen**
+
 The project contains an **MySQL sript** for the db.
 The project contains a **postman collection** export with the following endpoints to test:
 
