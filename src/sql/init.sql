@@ -19,6 +19,20 @@
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `articles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `articles` (
+                            `id` int NOT NULL AUTO_INCREMENT,
+                            `title` varchar(45) DEFAULT NULL,
+                            `date` datetime DEFAULT NULL,
+                            `writer` varchar(45) DEFAULT NULL,
+                            `innerText` varchar(45) DEFAULT NULL,
+                            `fullText` varchar(1000) DEFAULT NULL,
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

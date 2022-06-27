@@ -21,8 +21,7 @@ services:
             MYSQL_PASSWORD: 'secret123'
             MYSQL_DATABASE: 'vuedb'
         volumes:
-            - "./sql/vuedb_articles.sql:/docker-entrypoint-initdb.d/vuedb_articles.sql"
-            - "./sql/vuedb_users.sql:/docker-entrypoint-initdb.d/vuedb_users.sql"
+            - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
         ports:
             - 3307:3306
     phpmyadmin:
