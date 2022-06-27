@@ -8,6 +8,22 @@ use Repositories\Repository;
 
 class UserRepository extends Repository
 {
+    function getOne($id)
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Models\User');
+            $user = $stmt->fetch();
+
+            return $user;
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
     function login($username, $password)
     {
         $hasValidCredentials = false;

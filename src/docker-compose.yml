@@ -22,6 +22,7 @@ services:
             MYSQL_DATABASE: 'vuedb'
         volumes:
             - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
+            - "./sql/vuedb_articles.sql:/docker-entrypoint-initdb.d/vuedb_articles.sql"
         ports:
             - 3307:3306
     phpmyadmin:

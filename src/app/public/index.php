@@ -20,12 +20,12 @@ $router->get('/products/(\d+)', 'ProductService@getOne');
 $router->put('/products/(\d+)', 'ProductService@update');
 $router->post('/products/(\d+)', 'ProductService@post');
 
-$router->post('/users(/\d+)?(/\d+)', 'UserService@login');
 $router->get('/users/(\d+)', 'UserService@getOne');
+$router->post('/users(/\d+)?(/\d+)', 'UserService@login');
 $router->post('/users/create/(\d+)', 'UserService@insert');
 $router->delete('/users/(\d+)', 'UserService@delete');
 
-$router->post('/articles?(/\d+)?(/\d+)', 'ArticleService@getAll');
+$router->get('/articles?(/\d+)?(/\d+)', 'ArticleService@getAll');
 $router->get('/articles/(\d+)', 'ArticleService@getOne');
 $router->post('/articles/create/(\d+)', 'ArticleService@insert');
 $router->put('/articles/(\d+)', 'ArticleService@update'); // TODO ask how to send item body?
