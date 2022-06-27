@@ -49,17 +49,18 @@ class ArticleRepository extends Repository
 
     function insert($article)
     {
-        if(ValidateUser()){
+     if(ValidateUser()){
             try {
+                $d = time();
                 $stmt = $this->connection->prepare("INSERT into articles (title, date, writer, innerText, `fullText`) VALUES (?,?,?,?,?)");
-                $stmt->execute([$article->title, now(), $article->writer, $article->innerText, $article->fullText]);
+                $stmt->execute([$article->title, date("Y-m-d  H:i:s", $d), $article->writer, $article->innerText, $article->fullText]);
                 $article->id = $this->connection->lastInsertId();
 
                 return $article;
             } catch (PDOException $e) {
                 echo $e;
             }
-        }
+     }
     }
 
 

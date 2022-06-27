@@ -20,7 +20,9 @@ class ArticleService {
         return $this->repository->getOne($id);
     }
 
-    public function insert($item) {       
+    public function insert() {       
+        $json = file_get_contents('php://input');
+        $item = json_decode($json);
         return $this->repository->insert($item);        
     }
 
