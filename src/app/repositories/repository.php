@@ -13,10 +13,11 @@ class Repository {
         require __DIR__ . '/../dbconfig.php';
 
         try {
-            $this->connection = new PDO("$type:host=$servername;dbname=$database", $username, $password);
+            // $this->connection = new PDO("$type:host=$servername;dbname=$database", $username, $password);
+            $this->connection = new PDO("mysql:host=mysql;port=3307;dbname=vuedb;", "developer", "secret123");
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            throw new \PDOException("Connection failed: " . $e->getMessage());
           }
     }       
 
