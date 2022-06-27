@@ -49,7 +49,7 @@ class ArticleRepository extends Repository
 
     function insert($article)
     {
-     if(ValidateUser()){
+     if($this->ValidateUser()){
             try {
                 $d = time();
                 $stmt = $this->connection->prepare("INSERT into articles (title, date, writer, innerText, `fullText`) VALUES (?,?,?,?,?)");
