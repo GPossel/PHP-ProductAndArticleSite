@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "9cb29a30-1ac6-4d59-93a8-0f565d27487e",
+		"name": "WebDev2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/products/get/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/products/get/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/products/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"a-Ciabatta\",\r\n    \"price\":\"4.55\",\r\n    \"description\":\"a-Ciabatta (which translates to slipper!) is an Italian bread made with wheat flour, salt, yeast, and water. Though it's texture and crust vary slightly throughout Italy, the essential ingredients remain the same. Ciabatta is best for sandwiches and paninis, naturally.\",\r\n    \"image\":\"https:\\/\\/hips.hearstapps.com\\/hmg-prod.s3.amazonaws.com\\/images\\/957759184-1529703875.jpg?crop=1.00xw:0.645xh;0,0.104xh&resize=980:*\",\r\n    \"category_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/products/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/products/update/4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\":\"a-Ciabatta\",\r\n    \"price\":\"4.55\",\r\n    \"description\":\"a-Ciabatta (which translates to slipper!) is an Italian bread made with wheat flour, salt, yeast, and water. Though it's texture and crust vary slightly throughout Italy, the essential ingredients remain the same. Ciabatta is best for sandwiches and paninis, naturally.\",\r\n    \"image\":\"https:\\/\\/hips.hearstapps.com\\/hmg-prod.s3.amazonaws.com\\/images\\/957759184-1529703875.jpg?crop=1.00xw:0.645xh;0,0.104xh&resize=980:*\",\r\n    \"category_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/products/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/products/delete/4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/products/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/users/test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/users/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"gen\",\r\n    \"password\": \"gen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/articles/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/articles/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/articles/all/0/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/articles/all/0/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"all",
+						"0",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/articles/1/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/articles/1/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"1",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] http://localhost/articles/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzY0NjcxNTksImlzcyI6InlvdXIuZG9tYWluLm5hbWUiLCJuYmYiOjE2NzY0NjcxNTksImV4cCI6MTY3NjQ2NzUxOSwidXNlck5hbWUiOiJnZW4ifQ.XSdQAok9esfIclUeehbwIw1Mj2zCWbTA55x8r2el_czueGR1pNWMxVz3wZBsFAtY3VFlFWrqEGcX0bHddOjYuA",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "gen",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"A new Article\",\r\n    \"writer\":\"G. Possel\",\r\n    \"innerText\":\"A new Article about fun facts.\",\r\n    \"fullText\":\"This article contains a lot of funny facts about PHP.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/articles/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] http://localhost/articles/77/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzY0NzA2MTUsImlzcyI6InlvdXIuZG9tYWluLm5hbWUiLCJuYmYiOjE2NzY0NzA2MTUsImV4cCI6MTY3NjQ3MDk3NSwidXNlck5hbWUiOiJnZW4ifQ.m9o3TfAwIWa_4qDj5JjdUqcxDtDzBS0UBaCay28Nw-esKTAVCvX8_ZHFqXSsDZYMnuaDsGHTsOgyiSGiOHs3Mg",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "gen",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"[PUT] Ciddtroenwater, een wondermiddel?\",\r\n    \"date\": \"2022-03-30 09:36:58\",\r\n    \"writer\": \"G. Possel\",\r\n    \"innerText\": \"Citroenwater heeft vele gezondheidsvoordelen.\",\r\n    \"fullText\": \"Water met citroen kan helpen bij maagzuur, maagkrampen, buikpijn en een verminderde weerstand.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/articles/77/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"77",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] http://localhost/articles/77/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/articles/77/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"articles",
+						"77",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
