@@ -14,7 +14,7 @@ class ProductController extends Controller {
     
     public function getTest() {
         try {
-            $this->respond($this->product_service->getTest());
+            $this->respond(phpinfo());
         } catch (Exception $e)
         {
             $this->respondWithError(500, $e->getMessage());
@@ -67,6 +67,17 @@ class ProductController extends Controller {
         {   
             $this->respondWithError(500, $e->getMessage());
         }
+    }
+
+    public function uploadImg($img)
+    {
+        try {
+            $this->respond("Upload Img succes!");
+        } catch (Exception $e)
+        {
+            $this->respondWithError(500, $e->getMessage());
+        }
+
     }
 }
 ?>

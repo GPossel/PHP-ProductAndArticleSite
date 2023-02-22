@@ -38,6 +38,8 @@ $router->get('/products/get/(\d+)', 'ProductController@getOne');
 $router->post('/products/create', 'ProductController@post');
 $router->put('/products/update/(\d+)', 'ProductController@update');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
+$router->delete('/products/delete/(\d+)', 'ProductController@delete');
+$router->post('/products/picture', 'ProductController@uploadImg');
 
 $router->get('/users/test', 'UserController@getTest'); 
 $router->get('/users/(\d+)', 'UserController@getOne'); 

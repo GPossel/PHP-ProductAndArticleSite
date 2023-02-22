@@ -1,8 +1,6 @@
 <?php 
 namespace Controllers;
 
-use Exception;
-
 class Controller
 {    
     function respond($data)
