@@ -40,6 +40,8 @@ $router->put('/products/update/(\d+)', 'ProductController@update');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
 $router->post('/products/picture', 'ProductController@uploadImg');
+$router->get('/category/(\d+)', 'CategoryController@getOne');
+$router->get('/category/all(/\d+)?(/\d+)?', 'CategoryController@getAll');
 
 $router->get('/users/test', 'UserController@getTest'); 
 $router->get('/users/(\d+)', 'UserController@getOne'); 

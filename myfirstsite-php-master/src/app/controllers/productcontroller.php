@@ -42,6 +42,7 @@ class ProductController extends Controller {
     public function post() {
         try {
             $product = $this->createObjectFromPostedJson("Models\Product");
+            // TODO: add logic to handle the file upload, keep ref in img db
             $this->respond($this->product_service->insert($product));
         } catch (Exception $e)
         {
@@ -59,7 +60,6 @@ class ProductController extends Controller {
         }
     }
 
-
     public function delete($item) {
         try {
             $this->respond($this->product_service->delete($item));
@@ -69,15 +69,32 @@ class ProductController extends Controller {
         }
     }
 
-    public function uploadImg($img)
+    public function uploadImg()
     {
         try {
-            $this->respond("Upload Img succes!");
+            $uploadDir = '../public/uploads/';
+            $uploadFile = $uploadDir . basename($_FILES['upload-picture']['name']);
+            
+            if (move_uploaded_file($_FILES['upload-picture']['tmp_name'], $uploadFile)) {
+                $this->respondWithCode(200, $uploadFile);
+            } else {
+                $this->respondWithError(500, "Possible file upload attack!\n");
+            }
+            
         } catch (Exception $e)
         {
             $this->respondWithError(500, $e->getMessage());
         }
+    }
 
+    public function readFile($picturePath)
+    {
+        try {
+            $this->respondWithCode(200, readfile($picturePath));            
+        } catch (Exception $e)
+        {
+            $this->respondWithError(500, $e->getMessage());
+        }
     }
 }
 ?>
