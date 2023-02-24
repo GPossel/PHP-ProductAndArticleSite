@@ -39,6 +39,7 @@ $router->post('/products/create', 'ProductController@post');
 $router->put('/products/update/(\d+)', 'ProductController@update');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
+$router->get('/products/picture/get', 'ProductController@readFile');
 $router->post('/products/picture', 'ProductController@uploadImg');
 $router->get('/category/(\d+)', 'CategoryController@getOne');
 $router->get('/category/all(/\d+)?(/\d+)?', 'CategoryController@getAll');

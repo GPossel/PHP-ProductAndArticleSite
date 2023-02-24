@@ -87,10 +87,14 @@ class ProductController extends Controller {
         }
     }
 
-    public function readFile($picturePath)
+    public function readFile()
     {
         try {
-            $this->respondWithCode(200, readfile($picturePath));            
+            $json = file_get_contents('php://input');
+            $data = json_decode($json);
+    
+            $picturePath = $data->picturePath;
+            $this->respondWithCode(200, $picturePath);
         } catch (Exception $e)
         {
             $this->respondWithError(500, $e->getMessage());
