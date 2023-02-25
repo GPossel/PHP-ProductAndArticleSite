@@ -43,7 +43,7 @@ class ProductController extends Controller {
         try {
             $product = $this->createObjectFromPostedJson("Models\Product");
             // TODO: add logic to handle the file upload, keep ref in img db
-            $this->respond($this->product_service->insert($product));
+            // $this->product_service->insert($product);
         } catch (Exception $e)
         {
             $this->respondWithError(500, $e->getMessage());
