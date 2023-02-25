@@ -7,9 +7,7 @@ It uses MySQL, composer and JWTs. In the ProjcSetup file you can find the sql sc
 This project belongs with the Front-end project on:
 https://github.com/GPossel/myfirstsite
 
-This project can be run with the following command:
-#### php -S localhost:8081
-
+This project can be run with the use of Docker.
 
 LOGIN WITH:
   username: **gen**
