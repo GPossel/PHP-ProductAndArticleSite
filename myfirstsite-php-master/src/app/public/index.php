@@ -25,7 +25,27 @@ $router->get('/', function() {
 
 // Dynamic route: /hello/name
 $router->get('/hello/(\w+)', function($name) {
-	echo 'Hello ' . htmlentities($name);
+	// echo 'Hello ' . htmlentities($name);
+	// header("Content-Type: image/jpeg");
+	$path = __DIR__ . '/uploads' . '/_DSC2798.jpg';
+	
+	$data = base64_encode(file_get_contents($path));
+	// Format the image SRC:  data:{mime};base64,{data};
+	$src = 'data: '.mime_content_type($path).';base64,'.$data;
+
+	echo $src;
+	// Echo out a sample image
+	// echo '<img src="' . $src . '">';
+});
+
+$router->get('/public/uploads/(\w+)', function($pictureName) {
+	// header("Content-Type: image/jpeg,image/png");
+	$path = __DIR__ . '/uploads' . '/' . $pictureName;
+	$data = base64_encode(file_get_contents($path));
+	// Format the image SRC:  data:{mime};base64,{data};
+	$src = 'data: '.mime_content_type($path).';base64,'.$data;
+
+	echo $src;
 });
 
 $router->setNamespace('Controllers');
@@ -39,8 +59,10 @@ $router->post('/products/create', 'ProductController@post');
 $router->put('/products/update/(\d+)', 'ProductController@update');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
 $router->delete('/products/delete/(\d+)', 'ProductController@delete');
-$router->get('/products/picture/get', 'ProductController@readFile');
+
 $router->post('/products/picture', 'ProductController@uploadImg');
+$router->post('/products/picture/get', 'ProductController@readFile');
+
 $router->get('/category/(\d+)', 'CategoryController@getOne');
 $router->get('/category/all(/\d+)?(/\d+)?', 'CategoryController@getAll');
 

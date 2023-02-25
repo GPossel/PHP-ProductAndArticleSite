@@ -92,9 +92,15 @@ class ProductController extends Controller {
         try {
             $json = file_get_contents('php://input');
             $data = json_decode($json);
-    
-            $picturePath = $data->picturePath;
-            $this->respondWithCode(200, $picturePath);
+            $picturName = $data->pictureName;
+
+            if(isset($picturName))
+            {
+                $this->respondWithCode(200, $this->extractSource($picturName));
+            } else 
+            {
+                $this->respondWithError(500, "Problems empty picturename");
+            }
         } catch (Exception $e)
         {
             $this->respondWithError(500, $e->getMessage());
