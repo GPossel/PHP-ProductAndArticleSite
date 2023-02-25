@@ -5,7 +5,7 @@ It uses MySQL, composer and JWTs. In the ProjcSetup file you can find the sql sc
 
 #### Project settings
 This project belongs with the Front-end project on:
-[https://github.com/GPossel/myfirstsite](https://github.com/GPossel/Vue3js-ProductAndArticleSite/tree/master/Vue3js-ProductAndArticleSite)
+https://github.com/GPossel/Vue3js-ProductAndArticleSite/tree/master/Vue3js-ProductAndArticleSite
 
 This project can be run with the use of Docker.
 
