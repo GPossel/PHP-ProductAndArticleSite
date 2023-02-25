@@ -70,18 +70,6 @@ $router->get('/users/test', 'UserController@getTest');
 $router->get('/users/(\d+)', 'UserController@getOne'); 
 $router->post('/users/login', 'UserController@login');
 
-// https://github.com/bramus/router
-// https://github.com/GPossel/myfirstsite-php/tree/master/src/app
-// https://github.com/ahrnuld/api-les5/blob/master/app/controllers/categorycontroller.php
-// we protect the middleware
-$router->before('POST', '/users/create/(\d+)', function()
-{
-	if (!isset($_SESSION['user'])) // should check if user is actually user
-	{
-		header('location: /auth/login');
-		exit();
-	}
-});
 $router->post('/users/create/(\d+)', 'UserController@insert');
 $router->delete('/users/(\d+)', 'UserController@delete');
 

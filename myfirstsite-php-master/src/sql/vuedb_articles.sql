@@ -39,7 +39,10 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'Citroenwater, een wondermiddel?','2022-03-27 00:00:00','G. Possel','Citroenwater heeft vele gezondheidsvoordelen.','Water met citroen kan helpen bij maagzuur, maagkrampen, \n buikpijn en een verminderde weerstand.');
+INSERT INTO `articles` VALUES (1,'Citroenwater, een wondermiddel?', '2022-03-27 00:00:00', 'G. Possel','Citroenwater heeft vele gezondheidsvoordelen.','Water met citroen kan helpen bij maagzuur, maagkrampen, \n buikpijn en een verminderde weerstand.'),
+INSERT INTO `articles` VALUES (2,'Fun facts about PHP!', '2022-03-27 00:00:00', 'G. Possel', ' 1) The mascot of PHP is a big blue elephant. 2) ’ Personal Home Page’ is the original name of PHP. Today, PHP is recognized as ’ PHP: Hypertext Preprocessor, ’ '),
+INSERT INTO `articles` VALUES (3,'Jack Russell Terriërs trainen', '2022-03-27 00:00:00', 'G. Possel',' 1) The mascot of PHP is a big blue elephant. 2) ’ Personal Home Page’ is the original name of PHP. Today, PHP is recognized as ’ PHP: Hypertext Preprocessor, ’ ');
+
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

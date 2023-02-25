@@ -92,40 +92,46 @@ class UserRepository extends Repository
 
     function insert($user)
     {
-        try {
-            $encryptedPass = sha1($user->password);
-            $stmt = $this->connection->prepare("INSERT into users (username, email, password) VALUES (?,?,?)");
-            $stmt->execute($user->username, $user->email, $encryptedPass);
-            $user->id = $this->connection->lastInsertId();
-            return $user;
-        } catch (PDOException $e) {
-            echo $e;
+        if($this->ValidateUser()){
+            try {
+                $encryptedPass = sha1($user->password);
+                $stmt = $this->connection->prepare("INSERT into users (username, email, password) VALUES (?,?,?)");
+                $stmt->execute($user->username, $user->email, $encryptedPass);
+                $user->id = $this->connection->lastInsertId();
+                return $user;
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
     }
 
     function update($user, $id)
     {
-        try {
-            $encryptedPass = sha1($user->password);
-            $stmt = $this->connection->prepare("UPDATE users SET email = ?, username = ?, password = ? WHERE id = ?");
-            $stmt->execute([$user->email, $user->username, $encryptedPass, $id]);
-            return $user;
-        } catch (PDOException $e) {
-            echo $e;
+        if($this->ValidateUser()){
+            try {
+                $encryptedPass = sha1($user->password);
+                $stmt = $this->connection->prepare("UPDATE users SET email = ?, username = ?, password = ? WHERE id = ?");
+                $stmt->execute([$user->email, $user->username, $encryptedPass, $id]);
+                return $user;
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
     }
 
     function delete($id)
     {
-        try {
-            $stmt = $this->connection->prepare("DELETE FROM users WHERE id = :id");
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            return;
-        } catch (PDOException $e) {
-            echo $e;
+        if($this->ValidateUser()){
+            try {
+                $stmt = $this->connection->prepare("DELETE FROM users WHERE id = :id");
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+                return;
+            } catch (PDOException $e) {
+                echo $e;
+            }
+            return true;
         }
-        return true;
     }
 }
 ?>

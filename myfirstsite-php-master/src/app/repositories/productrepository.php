@@ -52,39 +52,45 @@ class ProductRepository extends Repository
 
     function insert($product)
     {
-        try {
-            $stmt = $this->connection->prepare("INSERT into product (name, price, description, image, category_id) VALUES (?,?,?,?,?)");
-            $stmt->execute([$product->name, $product->price, $product->description, $product->image, $product->category_id]);
-            $product->id = $this->connection->lastInsertId();
+        if($this->ValidateUser()){
+            try {
+                $stmt = $this->connection->prepare("INSERT into product (name, price, description, image, category_id) VALUES (?,?,?,?,?)");
+                $stmt->execute([$product->name, $product->price, $product->description, $product->image, $product->category_id]);
+                $product->id = $this->connection->lastInsertId();
 
-            return $product;
-        } catch (PDOException $e) {
-            echo $e;
+                return $product;
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
     }
 
     function update($product, $id)
     {
-        try {
-            $stmt = $this->connection->prepare("UPDATE product SET name = ?, price = ?, description = ?, image = ?, category_id = ? WHERE id = ?");
-            $stmt->execute([$product->name, $product->price, $product->description, $product->image, $product->category_id, $id]);
-            return $product;
-        } catch (PDOException $e) {
-            echo $e;
+        if($this->ValidateUser()){
+            try {
+                $stmt = $this->connection->prepare("UPDATE product SET name = ?, price = ?, description = ?, image = ?, category_id = ? WHERE id = ?");
+                $stmt->execute([$product->name, $product->price, $product->description, $product->image, $product->category_id, $id]);
+                return $product;
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
     }
 
     function delete($id)
     {
-        try {
-            $stmt = $this->connection->prepare("DELETE FROM product WHERE id = :id");
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            return;
-        } catch (PDOException $e) {
-            echo $e;
+        if($this->ValidateUser()){
+            try {
+                $stmt = $this->connection->prepare("DELETE FROM product WHERE id = :id");
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+                return;
+            } catch (PDOException $e) {
+                echo $e;
+            }
+            return true;
         }
-        return true;
     }
 }
 ?>
