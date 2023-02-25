@@ -73,12 +73,14 @@ class ProductController extends Controller {
     {
         try {
             $uploadDir = '../public/uploads/';
-            $uploadFile = $uploadDir . basename($_FILES['upload-picture']['name']);
-            
-            if (move_uploaded_file($_FILES['upload-picture']['tmp_name'], $uploadFile)) {
-                $this->respondWithCode(200, $uploadFile);
+
+            if(array_key_exists('upload-picture', $_FILES)){
+              $uploadFile = $uploadDir . basename($_FILES['upload-picture']['name']);
+              move_uploaded_file($_FILES['upload-picture']['tmp_name'], $uploadFile);
+              $pictureNameOrURL = basename($_FILES['upload-picture']['name']);
+              $this->respondWithCode(200, $pictureNameOrURL);
             } else {
-                $this->respondWithError(500, "Possible file upload attack!\n");
+              $this->respondWithError(500, "Possible file upload attack!\n");
             }
             
         } catch (Exception $e)
