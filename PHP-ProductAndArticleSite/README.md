@@ -19,3 +19,9 @@ Project usages: Composer, Firebase JWT, Bramus Routing.
 Docker: nginx, PHP, mariadb, phpmyadmin, Xdebug.
 
 This project was made by Gentle (639567) and is only for educational purposes. 2023
+
+
+![SingleProductsPage](https://user-images.githubusercontent.com/47417277/221383571-6819a38c-b986-4926-a149-7057d6310963.JPG)
+![ProductsPAge](https://user-images.githubusercontent.com/47417277/221383572-705220fb-824a-41d2-948b-4730f059c7de.JPG)
+![UpdateSingleProductsPage](https://user-images.githubusercontent.com/47417277/221383573-935c9fef-d367-4e67-9038-eeb6223fe3c8.JPG)
+![postmancollection](https://user-images.githubusercontent.com/47417277/221383674-48229476-308d-4b0a-88a8-139dda529b42.JPG)
